@@ -11,7 +11,6 @@ ENV CASSANDRA_HOME=/opt/apache-cassandra-${VER}/
 RUN curl -Ls ${URL} | tar zx -C /opt && \
     curl -Ls ${DUMB_INIT} > /dumb-init && chmod 755 /dumb-init && \
     mkdir ${CASSANDRA_HOME}/data && \
-    chown cassandra:cassandra ${CASSANDRA_HOME}/data ${CASSANDRA_HOME}/conf/cassandra.yaml && \
     apt-get -yqq install gettext-base
 
 COPY jvm.options cassandra.yaml.envsubst ${CASSANDRA_HOME}/conf/
